@@ -1,19 +1,22 @@
-var db = require('mysql');
+  
+var mysql = require("mysql");
 
-var db = mysql.createConnection({
-  host     : '127.0.0.1',
-  port     : 3306,
-  user     : 'root',
-  password : 'Saleen_454',
-  database : 'bamazon'
+var connection = mysql.createConnection({
+  host: "127.0.0.1",
+  port: 3036,
+  user: "root",
+  password: "Saleen_454",
+  database: "burger_app"
 });
 
-db.createConnection(function(err){
-  if (err){
-  console.log("This doesnt work:" + err.stack);
-  return;
-}
-  console.log("This has connected" + db.threadId);
+// Make connection.
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
 });
 
-module.exports = db;
+// Export connection for our ORM to use.
+module.exports = connection;
