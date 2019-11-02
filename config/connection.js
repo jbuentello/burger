@@ -3,12 +3,12 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection({
   host: "127.0.0.1",
-  port: 3036,
+  port: 3306,
   user: "root",
   password: "Saleen_454",
-  database: "burger_app"
+  database: "burgers_db"
 });
-
+console.log("IN CONNECTION");
 // Make connection.
 connection.connect(function(err) {
   if (err) {
